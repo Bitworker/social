@@ -33,8 +33,9 @@
 			<br clear="all" />
 		</div>
 	</div>
-	<% if ENV["RAILS_ENV"] == "development" %>
+	<%# if ENV["RAILS_ENV"] == "development" %>
 	<div id="debug">
+		<i>Debug Funktionen</i><br>
 		<a href="#" onclick="Element.toggle('params_debug_info');return false">params</a> |
 		<a href="#" onclick="Element.toggle('session_debug_info');return false">session</a> |
 		<a href="#" onclick="Element.toggle('env_debug_info');return false">env</a> |
@@ -56,6 +57,6 @@
 			<%= debug(request) %>
 		</fieldset>
 	</div>
-<% end %>
+<%# end %>
 </body>
 </html>
