@@ -1,0 +1,9 @@
+<h2><%= link_to 'Zurück zur Nachrichtenübersicht', blog_posts_path %></h2>
+<%= form_for(:post, :url => blog_posts_path) do |form| %>
+	<br>
+	<fieldset>
+	  <legend>Nachricht erstellen</legend>
+	  <%= render :partial => "form", :locals => { :form => form } %>
+	  <%= submit_tag "Erstellen", :class => "submit" %>
+	</fieldset>
+<% end %>

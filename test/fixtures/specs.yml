@@ -1,0 +1,16 @@
+--- !omap
+- valid_spec:
+    id: 1
+    user_id: 1
+    vorname: Kip
+    nachname: Thorne
+    geschlecht: Mann
+    geburtstag: 1940-06-01
+    arbeit: Physics
+    stadt: Pasadena
+    land: CA
+    postleitzahl: 91125
+
+- blank_spec:
+    id: 2
+    user_id: 2

@@ -1,0 +1,16 @@
+<% form_tag({ :action => "search" }, :method => "get") do %>
+	<fieldset>
+		<legend>Suche</legend>
+		<div class="form_row">
+			<label for="q">Personen suche:</label>
+			<%= text_field_tag "q", params[:q] %>
+			<input type="submit" value="Suche" />
+		</div>
+		<fieldset>
+			<legend>Info</legend>
+			<div class="form_row">
+				<label>Die Suchfunktion ist noch nicht integriert.</label>
+			</div>
+		</fieldset>
+	</fieldset>			
+<% end %>

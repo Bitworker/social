@@ -1,0 +1,84 @@
+<h1>Deine Benutzer Daten</h1>
+	<div id="left_column">
+		<div class="sidebar_box">
+			<h2>
+				<span class="header">Basis Informationen</span>
+				<span class="edit_link"><%= link_to "ändern", :action => "edit" %></span>
+				<br clear="all" />
+			</h2>
+			<div class="sidebar_box_contents">
+				<table>
+					<tr>
+						<td class="label">Benutzername:</td>
+						<td><%= @user.screen_name %></td>
+					</tr>
+					<tr>
+						<td class="label">Email:</td>
+						<td><%= @user.email %></td>
+					</tr>
+					<tr>
+						<td class="label">Passwort:</td>
+						<td>********</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div class="sidebar_box">
+			<h2>
+			<span class="header">Detailierte Informationen</span>
+			<span class="edit_link">
+				<%= link_to "ändern", :controller => "spec", :action => "edit" %>
+			</span>
+			<br clear="all" />
+			</h2>
+			<div class="sidebar_box_contents">
+				<table>
+					<%= render :partial => "spec/field_row", :collection => Spec::ALL_FIELDS %>
+				</table>
+			</div>
+		</div>
+		<%= render :partial => 'avatar/sidebar_box' %>
+		<%= render :partial => 'faq/sidebar_box', :collection => Faq::FAVORITES %>
+	</div>
+	<div id="main_content">
+		<h5>
+			<fieldset>
+				<legend>Info</legend>
+				<div class="form_row">
+					<label>Die Kommentarfunktion für Nachrichten ist noch nicht integriert.</label>
+				</div>
+			</fieldset>
+		</h5><br>
+		<div id="full_name">
+			<%= h @spec.full_name.or_else("Mein Name") %>
+		</div>
+		<div id="occupation">
+			<%= h @spec.arbeit.or_else("Meine Beschäftigung") %>
+		</div>
+		<div id="location">
+			<%= h @spec.location.or_else("Mein Wohnort") %>
+		</div>
+		<span class="edit_link">
+			<%= link_to "ändern", :controller => "spec", :action => "edit" %>
+		</span>
+		<hr noshade />
+			Profil URL: <%= link_to profile_for(@user), profile_for(@user) %>
+		<hr noshade />
+		Meine Biographie:
+		<span class="edit_link">
+			<%= link_to "ändern", :controller => "faq", :action => "edit" %>
+		</span>
+		<div id="bio" class="faq_answer">
+			<%= sanitize @faq.bio.force_encoding("UTF-8") %>
+		</div>
+		<hr noshade />
+		<%= render :partial => "friendship/friends" %>
+		<hr noshade />
+		Nachrichten:
+		<span class="edit_link">
+			<%= link_to "ändern", blog_posts_path(@blog)%>
+		</span>
+		<br>
+		<br>
+		<%= render :partial => "profile/blog" %>
+	</div>

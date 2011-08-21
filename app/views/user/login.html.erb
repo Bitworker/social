@@ -1,0 +1,21 @@
+<% form_for :user do |form| %>
+	<fieldset>
+		<legend><%= @title %></legend>
+		<br>
+		<%= render :partial => "email_field_row",
+			:locals => { :form => form } %>
+		<%= render :partial => "password_field_row",
+			:locals => { :form => form, 
+									 :field => "password",
+									 :field_title => "Passwort" } %>
+		<div class="form_row">
+			<label for="remember_me">Eingelogt bleiben?:</label><%= form.check_box :remember_me %>
+		</div>
+		<div class="form_row">
+			<%= submit_tag "Login!", :class => "submit" %>
+		</div>
+	</fieldset>
+<% end %>
+<p>
+Noch kein Mitglied? <%= link_to "Jetzt Registrieren", :action => "register" %>
+</p>

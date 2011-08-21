@@ -1,0 +1,17 @@
+<% @posts.each do |post| %>
+	<div class="post">
+		<b>Titel: </b><%= post.title.force_encoding("UTF-8") %>			  
+		<div class="post_body">
+		 	<%= post.body.force_encoding("UTF-8") %>
+		</div>
+		<span style="float:right">
+			<div class="post_title">
+				<%= link_to 'Anzeigen', blog_post_path(post.blog.id,post.id) %> |
+			 	<%= link_to 'Ändern', edit_blog_post_path(post.blog,post) %> |
+			  <%= link_to 'Löschen', [post.blog,post], :confirm => 'Bist du sicher?', :method => :delete %>
+		 	</div>
+		 </span>
+	   <br>
+	   <br>
+	</div>   
+<% end %>

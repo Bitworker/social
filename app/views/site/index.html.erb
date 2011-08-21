@@ -1,0 +1,77 @@
+<h1>Willkommen,</h1>
+dieses Social Network wurde im Rahmen einer Bachelorarbeit von Stefan Greffenius auf die Ruby on Rails version 3.0.6 migriert.
+Der Kern des Social Networks besteht aus dem open source Projekt Railsspace von Michael Hartl und Aurelius Prochazka. 
+<br>
+<br>
+<%= link_to "(Mehr zu sG Media und die genauen migrationsdetails findest du hier).", :controller => "site", :action => "about" %>
+<br>
+<br>
+Bei der aktuellen Version handelt es sich keinesfalls um ein fertiges Produkt welches ohne fehler genutzt werden kann, vielmehr hat es den Status eines Prototypen. 
+<br>
+<br>
+Nachfolgend Benutzungshinweise, realisierte- und geplante Funktionen sowie bekannte fehler.
+<br>
+<br>
+<fieldset>
+	<legend>Benutzungshinweise</legend>
+		<div class="form_row">
+			<b>- über Feedback würde ich mich freuen </b><br>
+			- bitte vermeidet bei der Eingabe echte sowie copyright geschützte Daten<br>
+			- verwendet nicht euer Standard-Passwort, nehmt dinge wie "qwertz"<br>
+			- falls ihr euch Registrieren solltet würde ich euch bitten auch alle Funktionen zu testen, bzw. einige Felder<br>
+				auszufüllen und ein Bild zu uploaden<br>
+		</div>
+</fieldset>
+<br>
+<fieldset>
+	<legend>Realisierte Funktionen</legend>
+		<div class="form_row">
+			- Datenbankanbindung (mySQL)<br>
+			- Registrierungs- / Loginfunktionen<br>
+			- Sessionspeicherung über einen Secure Cookie<br>
+			- Alphabetische Personensuche<br>
+			- Avatarupload<br>
+			- Benutzer Profile mit eigener URL .../Profile/Benutzername<br>
+			- Benutzer eigene Basis- und Detailinformationen<br>
+			- Benutzer eigene FAQS<br>
+			- Benutzer eigene Nachrichtenposts<br>
+			- Benutzer / Freund System<br>
+			- Überprüfung der kompletten Anwendung durch Test-Units
+		</div>
+</fieldset>
+<br>
+<fieldset>
+	<legend>Geplante Funktionen</legend>
+		<div class="form_row">
+			- direkte Personensuche<br>
+			- eine für alle benutzbare Kommentarfunktion zur reaktion auf Nachrichten<br>
+			- SHA1 Passwort + SALT <br>
+			- UTF-8 Fix<br>
+			- Avatar Thumbnail Fix<br>
+		</div>
+</fieldset>
+<br>
+<fieldset>
+	<legend>Bekannte Fehler</legend>
+		<div class="form_row">
+			- manche Eingabefelder wandeln die Eingabe von Ä, Ö, Ü und ß nicht in das UTF-8 Datenbankformat um<br>
+			- betroffen sind die Basis- und Detailinformationen, sowie das Passwort und die Änderung einer Nachricht<br>
+			<br>
+			<fieldset>
+				<legend>Achtung!!!</legend>
+					<div class="form_row">
+						<b>- in diesem Fall entsteht eine Fehlermeldung,<br></b>
+						---> geht im Browser eine Seite zurück und ändert eure Daten erneut<br>
+						---> verwendet keine sonderzeichen / Ä, Ö, Ü, ß`s<br>
+					</div>
+			</fieldset>
+			<br>
+			- Einige Fehlerausgaben sind in Englisch da die vordefinierten Ruby on Rails Fehlermethoden <br>
+			verwendet wurden<br>
+			- manche Benutzeravatare werden im zusammenhang mit Freundschaftsanfragen nicht richtig dargestellt<br>
+			- teilweise falsche Statusmeldungen im Actionfeld<br>
+			- falsch sortierte Nachrichten in der Nachrichtenverwaltung
+		</div>
+</fieldset>
+<br>
+Author: Stefan Greffenius, Berlin der 11.08.2011

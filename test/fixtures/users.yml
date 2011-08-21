@@ -1,0 +1,24 @@
+--- !omap
+- valid_user:
+    id: 1
+    screen_name: millikan
+    email: ram@example.com
+    password: electron
+
+- invalid_user:
+    id: 2
+    screen_name: aa/noyes
+    email: anoyes@example,com
+    password: sun
+    
+- specless:
+    id: 3
+    screen_name: linusp
+    email: lpauling@example.com
+    password: 2nobels
+    
+- friend:
+    id: 4
+    screen_name: amigo
+    email: ami@example.com
+    password: Freund

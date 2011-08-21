@@ -1,0 +1,17 @@
+<h2><%= link_to 'Zurück zur Nachrichtenübersicht', blog_posts_path %></h2>
+	<span style="float:right">
+	  <div class="post_title">
+			<%= link_to_unless_current 'Anzeigen', blog_post_path(@post.blog, @post) %> |
+			<%= link_to_unless_current 'Ändern', edit_blog_post_path(@post.blog, @post) %> |
+			<%= link_to 'Löschen', blog_post_path(@post.blog, @post),
+				:confirm => 'Bist du sicher?', :method => :delete %>
+		</div>
+	</span>
+	<% form_for(:post, :url => blog_post_path(:id => @post),
+										 :html => { :method => :put }) do |form| %>
+		<fieldset>
+			<legend>Nachricht ändern</legend>
+			<%= render :partial => "form", :locals => { :form => form } %>
+			<%= submit_tag "Ändern", :class => "submit" %>
+		</fieldset>
+	<% end %>

@@ -1,0 +1,82 @@
+<table>
+  <tr>
+    <th colspan="5" align="left">
+   		 Freunde (<%= @user.friends.count %>)
+    </th>
+  </tr>
+  <% @user.friends.each do |friend| %>
+  <tr>
+    <td width="50"> 
+     	<% if friend.avatar.exists? %>
+		 		<%= link_to thumbnail_tag(friend), profile_for(friend) %>
+			<% else %>
+		  	<%= default_avatar_thumbnail_tag %>
+			<% end %>
+    </td>
+    <td><%= link_to friend.name, profile_for(friend) %></td>
+   	<% unless hide_edit_links? %>
+ 	  	<td> | </td>
+  		<td align="right">       
+      	<%= link_to "Löschen", { :controller => "friendship", 
+      													 :action => "delete", 
+                      					 :id => friend.screen_name },
+                 	    					 :confirm => "Willst du wirklich die Freundschaft mit  #{friend.name} beenden?" %>
+    	</td>
+    <% end %>
+  </tr>
+  <% end %>
+  <% unless @user.requested_friends.empty? or hide_edit_links? %>
+    <tr>
+      <th colspan="5" align="left">
+        Empfangende Einladungen (<%= @user.requested_friends.count %>)
+      </th>
+    </tr>
+    <% @user.requested_friends.each do |requester| %>
+    <tr>
+	    <td>
+	    	<% if requester.avatar.exists? %>
+					<%= link_to thumbnail_tag(requester), profile_for(requester) %>
+				<% else %>
+					<%= default_avatar_thumbnail_tag %>
+		  	<% end %>
+		  </td>     
+      <td><%= link_to requester.name, profile_for(requester) %></td>
+      <td> | </td>
+      <td align="right">
+          <%= link_to "Akzeptieren", :controller => "friendship", 
+          													 :action => "accept", 
+                      							 :id => requester.screen_name %> / 
+          <%= link_to "Ablehnen", { :controller => "friendship", 
+          													:action => "decline", 
+                     							  :id => requester.screen_name }, 
+                     							  :confirm => "Willst du wirklich die Freundesanfrage von #{requester.name} ablehnen?" %>
+      </td>
+    </tr>
+    <% end %>
+  <% end %>
+  <% unless @user.pending_friends.empty? or hide_edit_links? %>
+    <tr>
+      <th colspan="5" align="left">
+        Gesendeten Einladungen (<%= @user.pending_friends.count %>)
+      </th>
+    </tr>
+    <% @user.pending_friends.each do |pending_friend| %>
+    <tr>
+	    <td>
+		    <% if pending_friend.avatar.exists? %>
+					<%= link_to thumbnail_tag(pending_friend), profile_for(pending_friend) %>
+				<% else %>
+					<%= default_avatar_thumbnail_tag %>
+	  	  <% end %>
+	  	</td>             
+      <td><%= link_to pending_friend.name, 
+                      profile_for(pending_friend) %></td>
+      <td> | </td>                
+      <td align="right"><%= link_to "Anfrage Abbrechen", { :controller => "friendship", 
+      																						         :action => "cancel", 
+                      																	   :id => pending_friend.screen_name }, 
+                   																			   :confirm => "Freundesanfrage abbrechen?" %></td>
+    </tr>
+    <% end %>
+  <% end %>
+</table>

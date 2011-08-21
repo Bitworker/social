@@ -1,0 +1,19 @@
+<% if logged_in? and @user != @logged_in_user %>
+	<div class="sidebar_box">
+		<h2>
+			<span class="header">Aktionen</span>
+			<br clear="all" />
+		</h2>
+		<ul>
+			<li><%= friendship_status(@logged_in_user, @user) %>
+				<% unless Friendship.exists?(@logged_in_user, @user) %>
+					<br/>
+					<%= link_to "Freundesanfrage senden!", { :controller => "friendship", 
+																								   :action => "create",
+																					 				 :id => @user.screen_name },
+																						  		 :confirm =>	"Freundesanfrage an #{@user.name} senden?" %>
+				<% end %>
+			</li>
+		</ul>
+	</div>
+<% end %>

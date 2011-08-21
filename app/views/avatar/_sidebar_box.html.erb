@@ -1,0 +1,21 @@
+<div class="sidebar_box">
+	<h2>
+		<span class="header">Bild</span>
+		<% unless hide_edit_links? %>
+			<span class="edit_link">
+				<%= link_to "ändern", :controller => "avatar", :action => "upload" %>
+			</span>
+		<% end %>
+		<br clear="all" />
+	</h2>
+	<div class="sidebar_box_contents">
+		<% if @user.avatar.exists? %>
+			<%= avatar_tag(@user) %>
+		<% elsif not hide_edit_links? %>
+			<%= default_avatar_thumbnail_tag %>
+			Noch kein Bild vorhanden.
+			<%= link_to "Bild Upload!", :controller => "avatar",
+																	:action => "upload" %>
+		<% end %>
+	</div>
+</div>

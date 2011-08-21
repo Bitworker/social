@@ -1,0 +1,46 @@
+<% form_for :spec do |form| %>
+	<fieldset>
+		<legend><%= @title %></legend>
+		<%= error_messages_for 'spec' %>
+		<div class="form_row">
+			<label for="first_name">Vorname</label>
+			<input id="spec_first_name" maxlength="255" name="spec[vorname]" size="15" type="text" value= "<%= @spec.vorname %>" />
+		</div>
+		<div class="form_row">
+			<label for="last_name">Nachname</label>
+			<input id="spec_last_name" maxlength="255" name="spec[nachname]" size="15" type="text" value="<%= @spec.nachname %>" />
+		</div>
+		<div class="form_row">
+			<label for="occupation">Arbeit</label>
+			<input id="spec_occupation" maxlength="255" name="spec[arbeit]" size="15" type="text" value="<%= @spec.arbeit %>" />
+		</div>
+		<div class="form_row">
+			<label for="gender">Geschlecht:</label>
+			<%= radio_button :spec, :geschlecht, "Mann" %> Männlich
+			<%= radio_button :spec, :geschlecht, "Frau" %> Weiblich
+		</div>
+		<div class="form_row">
+			<label for="birthdate">Geburtstag:</label>
+			<%= date_select :spec, 
+											:geburtstag,
+											:start_year => Spec::START_YEAR,
+											:end_year => Time.now.year,
+											:include_blank => true,
+											:order => [:day, :month, :year] %>
+		</div>
+		<div class="form_row">
+			<label for="city">Stadt</label>
+			<input id="spec_city" maxlength="255" name="spec[stadt]" size="15" type="text" value="<%= @spec.stadt %>" />
+		</div>
+		<div class="form_row">
+			<label for="state">Land</label>
+			<input id="spec_state" maxlength="255" name="spec[land]" size="15" type="text" value="<%= @spec.land %>" />
+		</div>
+		<div class="form_row">
+			<label for="zip_code">Postleitzahl</label>
+			<input id="spec_zip_code" maxlength="255" name="spec[postleitzahl]" size="15" type="text" value="<%= @spec.postleitzahl %>" />
+		</div>
+
+		<%= submit_tag "Ändern", :class => "submit" %>
+	</fieldset>
+<% end %>

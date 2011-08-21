@@ -1,0 +1,11 @@
+<br>
+<% form_for :faq do |form| %>
+	<fieldset>
+		<legend>FAQ</legend>
+		<%= error_messages_for 'faq' %>
+		<%= render :partial => "answer_text_area", :collection => Faq::QUESTIONS, 
+																							 :locals => { :form => form } %>
+		<br clear="all" />
+		<%= submit_tag "Alle Speichern", :class => "submit" %>
+	</fieldset>
+<% end %>
