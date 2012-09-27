@@ -3,7 +3,7 @@ require 'active_record'
 require 'active_record/fixtures'
 
 namespace :db do
-  DATA_DIRECTORY = "#{RAILS_ROOT}/lib/tasks/sample_data"
+  DATA_DIRECTORY = "#{Rails.root}/lib/tasks/sample_data"
   namespace :sample_data do 
     TABLES = %w(users specs faqs)
     MIN_USER_ID = 1000    # Starting user id for the sample data

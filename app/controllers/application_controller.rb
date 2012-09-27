@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   before_filter :check_authorization
 
   # Einzigartiger Cookiename zur Identifizierung
-	session :session_key => '_sG_Media_session_id'
+	# session :session_key => '_sG_Media_session_id'
 	
 	# Überprüfen eines gültigen Authentifizierungscookies, Login nach Möglichkeit
 	def check_authorization

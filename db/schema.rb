@@ -1,3 +1,4 @@
+# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -14,8 +15,8 @@ ActiveRecord::Schema.define(:version => 20110805124026) do
 
   create_table "blogs", :force => true do |t|
     t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "faqs", :force => true do |t|
@@ -29,8 +30,8 @@ ActiveRecord::Schema.define(:version => 20110805124026) do
     t.text     "tv"
     t.text     "magazine"
     t.text     "buecher"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
   create_table "friendships", :force => true do |t|
@@ -38,23 +39,23 @@ ActiveRecord::Schema.define(:version => 20110805124026) do
     t.integer  "friend_id"
     t.string   "status"
     t.datetime "accepted_at"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "posts", :force => true do |t|
     t.integer  "blog_id"
     t.string   "title"
     t.text     "body"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "sessions", :force => true do |t|
     t.string   "session_id", :null => false
     t.text     "data"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   add_index "sessions", ["session_id"], :name => "index_sessions_on_session_id"
@@ -70,16 +71,16 @@ ActiveRecord::Schema.define(:version => 20110805124026) do
     t.string   "stadt",        :default => ""
     t.string   "land",         :default => ""
     t.string   "postleitzahl", :default => ""
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
   end
 
   create_table "users", :force => true do |t|
     t.string   "screen_name"
     t.string   "email"
     t.string   "password"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
     t.string   "authorization_token"
   end
 
